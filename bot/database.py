@@ -228,4 +228,4 @@ class Database:
 
     async def record_request(self, user_id: int):
         async with self.connect() as db:
-            await db.execute("INSERT INTO rate_limit_log (user_
+            await db.execute("INSERT INTO rate_limit_log (user_id, ts) VALUES (?, ?)", (user_id, time.time()))_
